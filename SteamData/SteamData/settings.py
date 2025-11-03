@@ -35,8 +35,8 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'SteamData.MainApp',
-    'SteamData.GamesApp',
+    'MainApp.apps.MainappConfig',
+    'GameApp.apps.GamesappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
