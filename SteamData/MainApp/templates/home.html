@@ -1,7 +1,51 @@
-{% extends 'base.html' %}
-{% block title %}Home Page!{% endblock %}
+{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %}
 {% block content %}
-    <div>
-        <h1>Hello World! This is the HTML home template!</h1>
+
+<div class="container px-3 my-3">
+  <div class="row g-3">
+    <div class="col-lg-6">
+      <div class="p-3" style="background-color: #b8cfce">
+        <h2>This Project:</h2>
+        <p>
+          This is an interdiscplinary capstone between Computer Science (CS),
+          Management Information Systems (MIS), and Web Development (WEB). The
+          goal of this project was to create a relational database and web
+          application on the records of video games on the Steam digital
+          distribution service. By blending these disciplines, this project
+          proves that there is merit in comprehensive and interdisciplinary
+          knoweledge.
+        </p>
+        <p>
+          The PC games included in this database, are the 129 most popular games
+          in June and July of 2025. Over the course of six weeks, the app ID,
+          title, rank, and player count of these games were manually collected
+          in order to avoid webscraping the Steam website. The app ID was then
+          used to call an API that would return a JSON object with more data
+          about the game. After the retrieval, all the data was cleaned with the
+          Pandas libarary, coalesced into a single line of a CSV, and normalized
+          into Boyce-Codd normal form and formatted for My SQL Server.
+        </p>
+        <p>
+          This web application was built with the Django framework and deployed
+          with Railway. It aims to present the project and serve as
+          documentation. This website is accessible and responsive. The design
+          of the website was created custom CSS and the Bootstrap library.
+        </p>
+        <p>
+          Explore this application to learn more about project, the apps, or the
+          author.
+        </p>
+      </div>
     </div>
+    <div class="col-lg-6">
+      <div class="p-3" style="background-color: #b8cfce">
+        <img
+          id="conceptual-erd"
+          src="{% static 'ConceptualERD.png' %}"
+          alt="Conceptual ERD of database design"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

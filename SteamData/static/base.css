@@ -1,0 +1,34 @@
+nav {
+  background-color: #333446;
+}
+.custom-nav-link {
+  text-decoration: none;
+  color: #eaefef;
+  padding: 0 0.5rem;
+}
+#logo {
+  font-family: Aldrich;
+  color: #eaefef;
+  font-size: larger;
+}
+#body {
+  background-color: #eaefef;
+}
+.decorative-border {
+  background-color: #7f8caa;
+}
+footer {
+  background-color: #333446;
+  text-align: center;
+  color: #eaefef;
+  border-top: 1rem #7f8caa solid;
+}
+#copyright {
+  width: 100%;
+}
+.green-background {
+  background-color: #b8cfce;
+}
+#conceptual-erd {
+  width: 100%;
+}
