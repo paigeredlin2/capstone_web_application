@@ -4,17 +4,91 @@
 
 {% block content %}
 <div class="container">
-    <a href="{% url 'gallery' %}">Back to Gallery</a>
-    <h2>{{ game.Name }}</h2>
-    <img src="{{ game.Image_Link }}" alt="{{game.name}}">
-    <p>{{ game.Description }}</p>
-    <p>{{ game.Type }}</p>
-    <p>Required Age: {{ game.RequiredAge }}</p>
-    <p>Recommendations: {{ game.Recommendations }}</p>
-    <p>Free: {{ game.Is_Free }}</p>
-    <p>Discount: {{ game.Discount_Percent }}</p>
-    <p>Price: {{ game.Price }}</p>
-    <p>Coming Soon: {{ game.Coming_Soon }}</p>
-    <p>Release Date: {{ game.Release_Date }}</p>
+    
+        <div class="controls mt-3">
+            <a class="gallery-return" href="{% url 'gallery' %}?page={{ page }}">
+                <img class="return-icon" src="{% static 'return_icon.svg' %}" alt="Return to gallery">
+                Return to Gallery
+            </a>
+        </div>
+        
+        <div class="row">
+        <div class="col-xl-8">
+            <div class="game mb-3">
+                <h1 class="game-name mt-3 p-1 mb-0">{{ game.Name }}</h1>
+                <div class="row g-0 m-2">
+                    <div class="col-md-6">
+                        <img class="game-image" src="{{ game.Image_Link }}" alt="{{game.name}}">
+                    </div>
+                    <div class="col-md-6 px-2">
+                        <p class="game-description">{{ game.Description }}</p>
+                    </div>  
+                </div>
+                <div class="decorative-border p-1"></div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        This is a {{ game.Type }}.
+                        {% if game.Full_AppID %}
+                        Full content can be found <a href="{% url 'detail' game.Full_AppID %}"> here. </a>
+                        {% endif %}
+                    </li>
+                    {% if game.Required_Age %}
+                        <li class="list-group-item align-middle">
+                            It is recommended that you are at least {{ game.Required_Age }} years old to download this {{ game.Type }}.
+                        </li>
+                    {% endif %}
+                    {% if game.Recommendations %}
+                        <li class="list-group-item">
+                            A total of {{ game.Recommendations }} people have recommended this {{ game.Type }}.
+                        </li>
+                    {% endif %}
+                    {% if not game.Price %}
+                        <li class="list-group-item">
+                            This {{ game.Type }} is free.
+                        </li>
+                    {% else %}
+                    <li class="list-group-item">
+                        This game costs ${{ game.Price }}
+                        {% if game.Discount_Percent %}
+                            at {{ game.Discount_Percent }}% off.
+                        {% endif %}   
+                    </li>
+                    {% endif %}
+                    {% if game.Release_Date %}
+                    <li class="list-group-item">
+                        This {{ game.Type }} was released on {{ game.Release_Date }}
+                    </li>
+                    {% else %}
+                    <li class="list-group-item">
+                        Keep patient, this game has not been fully release yet!
+                    </li>
+                    {% endif %}
+                </ul> 
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="rankings mt-3">
+                <h2 class="rankings-heading">Steam Chart Rankings:</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date:</th>
+                            <th scope="col">Rank:</th>
+                            <th scope="col">Player Count:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rank in rankings %}
+                        <tr>
+                            <td>{{ rank.Date }}</td>
+                            <td>{{ rank.Rank}}</td>
+                            <td>{{ rank.Player_Count}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -4,7 +4,7 @@
   <div class="row mb-3">
     <div class="col">
       <div class="p-3" style="background-color: #b8cfce">
-        <h3>CSV Data Downloads:</h3>
+        <h2>CSV Data Downloads:</h2>
         <ul class="list-group list-group-horizontal-md">
           <a
             href="{% static 'entities/App.csv' %}"
@@ -206,7 +206,7 @@
           </code>
         </div>
         <div class="code-fragment">
-          <h3>Create Stored Procedure</h3>
+          <h3 class="code-fragment-heading">Create Stored Procedure</h3>
           <code>
             <pre>
       CREATE PROCEDURE dbo.BulkInsertFromCSV
@@ -263,7 +263,7 @@
           To add data to the database, the <a href="https://django-import-export.readthedocs.io/en/latest/">Django import/export</a> application and library was added to the project via <a href="https://pypi.org/project/pip/">pip</a>. This allows the csv files to be imported without any extra coding or formatting. To add this functionality, a resource.py file must be made in the model's application and 'import_export' must be added to the project's settings.py INSTALLED_APPS array.
         </p>
         <div class="code-fragment">
-          <h3>Django Models</h3>
+          <h3 class="code-fragment-heading">Django Models</h3>
           <code>
             <pre>
     from django.db import models
