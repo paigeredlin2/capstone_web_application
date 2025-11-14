@@ -1,3 +1,9 @@
+html,
+body {
+  background-color: #eaefef;
+  height: 100%;
+  border: 5px solid red;
+}
 nav {
   background-color: #333446;
 }
@@ -6,13 +12,13 @@ nav {
   color: #eaefef;
   padding: 0 0.5rem;
 }
+.custom-nav-link:hover {
+  text-decoration: underline;
+}
 #logo {
   font-family: Aldrich;
   color: #eaefef;
   font-size: larger;
-}
-#body {
-  background-color: #eaefef;
 }
 .decorative-border {
   background-color: #7f8caa;
@@ -26,9 +32,38 @@ footer {
 #copyright {
   width: 100%;
 }
+#home-intro {
+  background-color: #b8cfce;
+  box-shadow: -5px 5px 5px #7f8caa;
+}
 .green-background {
   background-color: #b8cfce;
 }
 #conceptual-erd {
   width: 100%;
+  border: 2px solid #333446;
+}
+.code-fragment {
+  padding: 0.5rem;
+  background-color: #FFFFFF;
+  box-shadow: -7px 7px 5px #7f8caa;
+  margin-bottom: 1rem;
+}
+.code-fragment > .code-fragment-heading{
+  color: #333446;
+}
+.code-fragment > code > pre {
+  color: #333446;
+  margin: 0;
+  font-weight: bold;
+}
+.examine-game{
+  border: 2px solid #333446;
+  text-decoration: none;
+  background-color: #333446;
+  padding: 8px;
+  color: #eaefef;
+}
+.examine-game > svg {
+  color: #eaefef
 }

@@ -17,5 +17,3 @@ class RankingResource(resources.ModelResource):
 
     class Meta:
         model = Ranking
-
-        

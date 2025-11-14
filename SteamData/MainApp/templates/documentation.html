@@ -1,16 +1,354 @@
-{% extends 'base.html' %} {% load static %}{% block title %}Documentation{% endblock %} 
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block title%}Documentation{%endblock %} {% block content %}
 
 <div class="container px-3 my-3">
+  <div class="row mb-3">
+    <div class="col">
+      <div class="p-3" style="background-color: #b8cfce">
+        <h3>CSV Data Downloads:</h3>
+        <ul class="list-group list-group-horizontal-md">
+          <a
+            href="{% static 'entities/App.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="App.csv"
+            >Apps</a
+          >
+          <a
+            href="{% static 'entities/Category.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="Category.csv"
+            >Categories</a
+          >
+          <a
+            href="{% static 'entities/Genre.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="Genre.csv"
+            >Genres</a
+          >
+        </ul>
+        <ul class="list-group list-group-horizontal-md">
+          <a
+            href="{% static 'entities/Developer.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="Developer.csv"
+            >Developers</a
+          >
+          <a
+            href="{% static 'entities/Publisher.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="Publisher.csv"
+            >Publishers</a
+          >
+          <a
+            href="{% static 'entities/Language.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="Language.csv"
+            >Languages</a
+          >
+        </ul>
+        <ul class="list-group list-group-horizontal-md">
+          <a
+            href="{% static 'entities/Ranking.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="Ranking.csv"
+            >Rankings</a
+          >
+          <a
+            href="{% static 'entities/App_Category.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="App_Category.csv"
+            >Apps and Categories</a
+          >
+          <a
+            href="{% static 'entities/App_Genre.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="App_Genre.csv"
+            >Apps and Genres</a
+          >
+        </ul>
+        <ul class="list-group list-group-horizontal-md">
+          <a
+            href="{% static 'entities/App_Developer.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="App_Developer.csv"
+            >Apps and Developers</a
+          >
+          <a
+            href="{% static 'entities/App_Publisher.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="App_Publisher.csv"
+            >Apps and Publishers</a
+          >
+          <a
+            href="{% static 'entities/App_Language.csv' %}"
+            class="list-group-item list-group-item-action"
+            download="App_Language.csv"
+            >Apps and Languages</a
+          >
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="row g-3">
     <div class="col-lg-6">
       <div class="p-3" style="background-color: #b8cfce">
         <h2>Database:</h2>
+        <p>
+          For this project, the data has has been normalized to Boyce-Codd
+          normal form for relational database use. The intended database
+          management system is SQL Server.
+        </p>
+        <div class="code-fragment">
+          <h3 class="code-fragment-heading">Create Database</h3>
+          <code>
+            <pre>
+      CREATE DATABASE SteamGames;
+            </pre>
+          </code>
+        </div>
+        <div class="code-fragment">
+          <h3 class="code-fragment-heading">Create Database Tables</h3>
+          <code>
+            <pre>
+      USE SteamGames;
+
+      CREATE TABLE APPS(
+        AppID int PRIMARY KEY,
+        AppName nvarchar(300) NOT NULL,
+        Description nvarchar(500) NULL,
+        Type nvarchar(20) NOT NULL,
+        RequiredAge int NULL CHECK (RequiredAge > 0 AND RequiredAge < 100),
+        Recommendations int NULL CHECK (Recommendations > 0),
+        IsFree bit NOT NULL,
+        DiscountPercent int NULL CHECK (DiscountPercent > 0 AND DiscountPercent < 100),
+        Price decimal(6,2) NULL,
+        ComingSoon bit NOT NULL,
+        ReleaseDate date NULL CHECK (ReleaseDate > '1958-01-01'),
+        FullAppID int Null,
+        ImageLink nvarchar(200) Null
+      );
+
+      CREATE TABLE CATEGORIES(
+        CategoryID int PRIMARY KEY,
+        Description nvarchar(50) NOT NULL
+      );
+
+      CREATE TABLE GENRES(
+        GenreID int PRIMARY KEY,
+        Description nvarchar(50) NOT NULL
+      );
+
+      CREATE TABLE DEVELOPERS(
+        DeveloperID int PRIMARY KEY,
+        DeveloperName nvarchar(100) NOT NULL
+      );
+
+      CREATE TABLE PUBLISHERS(
+        PublisherID int PRIMARY KEY,
+        PublisherName nvarchar(100) NOT NULL
+      );
+
+      CREATE TABLE LANGUAGES(
+        LanguageID int PRIMARY KEY,
+        LanguageName nvarchar(100) NOT NULL
+      );
+
+      CREATE TABLE RANKINGS(
+        AppID int NOT NULL,
+        Date date NOT NULL,
+        Rank int NOT NULL CHECK (Rank >= 1 AND RANK <= 100),
+        PlayerCount int NOT NULL CHECK (PlayerCount > 0),
+        PRIMARY KEY (AppID, Date),
+        FOREIGN KEY (AppID) REFERENCES Apps(AppID)
+      );
+
+      CREATE TABLE APP_CATEGORIES(
+        AppID int NOT NULL,
+        CategoryID int NOT NULL,
+        PRIMARY KEY (AppID, CategoryID),
+        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
+        FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+      );
+
+      CREATE TABLE APP_GENRES(
+        AppID int NOT NULL,
+        GenreID int NOT NULL,
+        PRIMARY KEY (AppID, GenreID),
+        FOREIGN KEY (AppID) REFERENCES Apps(AppID), 
+        FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
+      );
+
+      CREATE TABLE APP_DEVELOPERS(
+        AppID int NOT NULL,
+        DeveloperID int NOT NULL,
+        PRIMARY KEY (AppID, DeveloperID),
+        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
+        FOREIGN KEY (DeveloperID) REFERENCES Developers(DeveloperID)
+      );
+
+      CREATE TABLE APP_PUBLISHERS(
+        AppID int NOT NULL,
+        PublisherID int NOT NULL,
+        PRIMARY KEY (AppID, PublisherID),
+        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
+        FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID)
+      );
+
+      CREATE TABLE APP_LANGUAGES(
+        AppID int NOT NULL,
+        LanguageID int NOT NULL,
+        AudioSupport bit NOT NULL,
+        PRIMARY KEY (AppID, LanguageID),
+        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
+        FOREIGN KEY (LanguageID) REFERENCES Languages(LanguageID)
+      );
+          </pre
+            >
+          </code>
+        </div>
+        <div class="code-fragment">
+          <h3>Create Stored Procedure</h3>
+          <code>
+            <pre>
+      CREATE PROCEDURE dbo.BulkInsertFromCSV
+      (
+        @TableName nvarchar(128),
+        @FilePath nvarchar(255)
+      )
+      AS
+      BEGIN
+        DECLARE @SQL nvarchar(MAX);
+
+        SET @SQL = '
+        BULK INSERT ' + @TableName + '
+        FROM ''' + @FilePath + '''
+        WITH (
+          FORMAT = ''CSV'',
+          FIELDTERMINATOR = '','',
+              ROWTERMINATOR = ''\n'',
+              FIRSTROW = 2,
+          CODEPAGE = ''65001''	
+        )'
+          EXEC sp_executesql @SQL;
+      END
+      ;
+            </pre>
+          </code>
+        </div>
+        <div class="code-fragment">
+          <h3 class="code-fragment-heading">
+            Insert Data Using Stored Procedure
+          </h3>
+          <code>
+            <pre>
+      USE SteamGames;
+
+      EXEC dbo.BulkInsertFromCSV 
+        @TableName = '',
+        @FilePath = ''
+      ;
+            </pre>
+          </code>
+        </div>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="p-3" style="background-color: #b8cfce">
         <h2>Website:</h2>
+        <p>
+          The Django website uses PostgreSQL as its backend database. At this
+          time, only the Apps and Ranking entites are available as Django
+          models.
+        </p>
+        <p>
+          To add data to the database, the <a href="https://django-import-export.readthedocs.io/en/latest/">Django import/export</a> application and library was added to the project via <a href="https://pypi.org/project/pip/">pip</a>. This allows the csv files to be imported without any extra coding or formatting. To add this functionality, a resource.py file must be made in the model's application and 'import_export' must be added to the project's settings.py INSTALLED_APPS array.
+        </p>
+        <div class="code-fragment">
+          <h3>Django Models</h3>
+          <code>
+            <pre>
+    from django.db import models
+
+    # Create models here.
+
+    class App(models.Model):
+      AppID = models.IntegerField(primary_key=True)
+      Name = models.CharField(max_length=300)
+      Description = models.TextField(max_length=500, null=True)
+      Type = models.CharField(max_length=20)
+      Required_Age = models.IntegerField(null=True)
+      Recommendations = models.IntegerField(null=True)
+      Is_Free = models.BooleanField()
+      Discount_Percent = models.IntegerField(null=True)
+      Price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+      Coming_Soon = models.BooleanField()
+      Release_Date = models.DateField(null=True)
+      Full_AppID = models.IntegerField(null=True)
+      Image_Link = models.CharField(max_length=200, null=True)
+
+    class Ranking(models.Model):
+      App = models.ForeignKey(App, on_delete=models.CASCADE)
+      Date = models.DateField()
+      Rank = models.IntegerField()
+      Player_Count = models.IntegerField(null=True)
+            </pre>
+          </code>
+        </div>
+        <div class="code-fragment">
+          <h3 class="code-fragment-heading">Django Import Export Resources.py</h3>
+        <code>
+          <pre>
+    #resources.py added to app
+    from import_export import resources, fields
+    from import_export.widgets import ForeignKeyWidget
+    from .models import App, Ranking
+
+    class AppResource(resources.ModelResource):
+        class Meta:
+            model = App
+            import_id_fields = ['AppID']
+            fields = ('AppID', 'Name', 'Description', 'Type', 'Required_Age', 
+            'Recommendations', 'Is_Free', 'Discount_Percent', 'Price', 'Coming_Soon', 
+            'Release_Date', 'Full_AppID', 'Image_Link')
+
+    class RankingResource(resources.ModelResource):
+        App = fields.Field(
+            column_name='AppID',        
+            attribute='App',             
+            widget=ForeignKeyWidget(App, 'AppID') 
+        )
+
+        class Meta:
+            model = Ranking
+          </pre>
+        </code>
+        </div>
+        <div class="code-fragment">
+          <h3 class="code-fragment-heading">
+            Django Import Export Admin.py
+          </h3>
+          <code>
+            <pre>
+      #admin.py register Import Export models
+      from django.contrib import admin
+      from import_export.admin import ImportExportModelAdmin
+      from .models import App, Ranking
+      from .resources import AppResource, RankingResource
+
+      # Register your models here.
+      @admin.register(App)
+      class AppAdmin(ImportExportModelAdmin):
+          resource_class = AppResource
+          list_display = ('Name', 'Release_Date')
+          search_fields = ('AppID', 'Name')
+
+      @admin.register(Ranking)
+      class RankingAdmin(ImportExportModelAdmin):
+          resource_class = RankingResource
+          list_display = ('App', 'Date', 'Rank', 'Player_Count')
+          search_fields = ('App', 'Date', 'Rank')
+            </pre>
+          </code>
+        </div>
       </div>
     </div>
   </div>

@@ -4,13 +4,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/base.css" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,8 +25,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"
   ></script>
-  <body class="d-flex flex-column" style="background-color: #eaefef;">
-
+  <body class="d-flex flex-column">
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
       <div class="container-fluid">
         <span id="logo" class="navbar-text">STEAM DATABASE</span>
@@ -40,10 +40,15 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavAltMarkup"
+        >
           <div class="navbar-nav">
             <a class="custom-nav-link" href="{% url 'home' %}">Home</a>
-            <a class="custom-nav-link" href="{% url 'documentation' %}">Documentation</a>
+            <a class="custom-nav-link" href="{% url 'documentation' %}"
+              >Documentation</a
+            >
             <a class="custom-nav-link" href="{% url 'gallery' %}">Gallery</a>
             <a class="custom-nav-link" href="{% url 'about' %}">About</a>
           </div>
@@ -52,14 +57,11 @@
     </nav>
 
     <div class="py-2 decorative-border"></div>
-    <div class="flex-grow-1">
-        {% block content %} {% endblock %}
-    </div>
-    
 
-    <footer class="py-2 fixed-bottom">
+    <div class="flex-grow-1">{% block content %} {% endblock %}</div>
+
+    <footer class="py-2">
       <span class="align-middle">&copy; Paige Redlin 2025</span>
     </footer>
-
   </body>
 </html>

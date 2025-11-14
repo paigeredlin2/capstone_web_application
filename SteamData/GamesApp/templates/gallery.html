@@ -1,7 +1,42 @@
 {% extends 'base.html' %}
-{% block title %}Gallery Page{% endblock %}
+{% load static %}
+{% block title %}Gallery Page{% endblock %} 
 {% block content %}
-    <div>
-        <h1>Welcome to the gallery page!</h1>
+
+<div class="container p-3">
+    <div class="row g-4">
+  
+    {% for game in page_obj %}
+    <div class="col-md-6 col-xl-4">
+        <div class="card mb-2">
+        <img src="{{ game.Image_Link }}" class="card-img-top" alt="{{ game.Name }}">
+        <div class="card-body">
+            <h6 class="card-title">{{ game.Name }}</h6>
+            <p>Release Date: {{ game.Release_Date }}</p>
+            <a class="examine-game" href="{% url 'detail' game.AppID %}">Examine<img src="{% static 'search_icon.svg' %}" style="width: 2rem;" alt="Search"></a>
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+  
+</div>
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
     </div>
 {% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Detail Page{% endblock %} 
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'gallery' %}">Back to Gallery</a>
+    <h2>{{ game.Name }}</h2>
+    <img src="{{ game.Image_Link }}" alt="{{game.name}}">
+    <p>{{ game.Description }}</p>
+    <p>{{ game.Type }}</p>
+    <p>Required Age: {{ game.RequiredAge }}</p>
+    <p>Recommendations: {{ game.Recommendations }}</p>
+    <p>Free: {{ game.Is_Free }}</p>
+    <p>Discount: {{ game.Discount_Percent }}</p>
+    <p>Price: {{ game.Price }}</p>
+    <p>Coming Soon: {{ game.Coming_Soon }}</p>
+    <p>Release Date: {{ game.Release_Date }}</p>
+</div>
+{% endblock %}
