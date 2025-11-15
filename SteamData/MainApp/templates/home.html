@@ -1,10 +1,11 @@
-{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}Home{% endblock %}
 {% block content %}
-
 <div class="container px-3 my-3">
   <div class="row g-3">
     <div class="col-lg-6">
-      <div class="p-3" id="home-intro">
+      <div class="p-3 home-content">
         <h2>This Project:</h2>
         <p>
           This is an interdiscplinary capstone between Computer Science (CS),
@@ -31,19 +32,22 @@
           documentation. This website is accessible and responsive. The design
           of the website was created custom CSS and the Bootstrap library.
         </p>
-        <p>
-          Explore this application to learn more about project, the apps, or the
-          author.
-        </p>
       </div>
     </div>
+    
     <div class="col-lg-6">
-      <div class="p-3" style="background-color: #b8cfce">
+      <div class="p-3 text-center home-content">
         <img
           id="conceptual-erd"
+          class="mb-3 img-fluid"
           src="{% static 'ConceptualERD.png' %}"
           alt="Conceptual ERD of database design"
         />
+        <img 
+          id="logical-erd"
+          class="img-fluid"
+          src="{% static 'LogicalERD.png' %}" 
+          alt="Logical ERD of database design">
       </div>
     </div>
   </div>

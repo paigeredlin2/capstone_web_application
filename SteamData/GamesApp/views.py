@@ -14,7 +14,7 @@ def gallery(request):
                 similarity__gt=0.4
             ).order_by("-similarity")    
     else: 
-        games = App.objects.all()
+        games = App.objects.all().order_by("AppID")
         
     paginator = Paginator(games, 18)
     page_number = request.GET.get('page')

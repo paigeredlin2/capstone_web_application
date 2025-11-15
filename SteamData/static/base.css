@@ -31,7 +31,7 @@ footer {
 #copyright {
   width: 100%;
 }
-#home-intro {
+.home-content {
   background-color: #b8cfce;
   box-shadow: -5px 5px 5px #7f8caa;
 }
@@ -39,7 +39,11 @@ footer {
   background-color: #b8cfce;
 }
 #conceptual-erd {
-  width: 100%;
+
+  border: 2px solid #333446;
+}
+#logical-erd {
+
   border: 2px solid #333446;
 }
 .code-fragment {
@@ -60,17 +64,17 @@ footer {
   margin: 0;
   font-weight: bold;
 }
-.search-form-button{
+.search-form-button {
   background-color: #333446;
   color: white;
   font-family: Aldrich;
   border: 2px outset #333446;
 }
-.search-form-button:hover{
+.search-form-button:hover {
   border: 2px inset #333446;
   text-decoration: underline;
 }
-.clear-search{
+.clear-search {
   text-decoration: none;
   color: white;
 }
@@ -107,7 +111,7 @@ footer {
 .return-icon {
   width: 2rem;
 }
-.game{
+.game {
   background-color: white;
   box-shadow: -7px 7px 5px #7f8caa;
 }
@@ -121,14 +125,14 @@ footer {
   width: 100%;
   border: 2px solid #333446;
 }
-.game-description{
+.game-description {
   font-size: larger;
 }
-.rankings{
+.rankings {
   background-color: #b8cfce;
-  padding: .5rem;
+  padding: 0.5rem;
   box-shadow: -5px 5px 4px #7f8caa;
 }
-.rankings-heading{
+.rankings-heading {
   color: #333446;
 }
