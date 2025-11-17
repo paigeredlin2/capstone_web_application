@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <h6 class="card-title">{{ game.Name }}</h6>
                     <p>Release Date: {{ game.Release_Date }}</p>
-                <a class="examine-game p-1" href="{% url 'detail' game.AppID %}?page={{ page_obj.number }}">Examine<img src="{% static 'icons/search_icon.svg' %}" style="width: 2rem;" alt="Search"></a>
+                <a class="examine-game p-1" href="{% url 'detail' game.AppID %}?page={{ page_obj.number }}">Examine<img src="{% static 'icons/search_icon.svg' %}" alt="Search"></a>
                 </div>
             </div>
         </div>

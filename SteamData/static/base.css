@@ -6,14 +6,18 @@ body {
 .main-nav {
   background-color: #333446;
 }
+.steam-logo {
+  width: 2rem;
+}
 .custom-nav-link {
   text-decoration: none;
   color: #eaefef;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 }
 .custom-active {
   background-color: #eaefef;
   color: #333446;
+  border: 2px inset #7f8caa;
 }
 .custom-nav-link:hover {
   text-decoration: underline;
@@ -28,9 +32,12 @@ body {
 }
 footer {
   background-color: #333446;
-  text-align: center;
-  color: #eaefef;
   border-top: 1rem #7f8caa solid;
+}
+footer > p {
+  font-size: small;
+  color: #eaefef;
+  text-align: center;
 }
 #copyright {
   width: 100%;
@@ -45,12 +52,13 @@ footer {
 .green-background {
   background-color: #b8cfce;
 }
+.green-background > h2 {
+  color: #333446;
+}
 #conceptual-erd {
-
   border: 2px solid #333446;
 }
 #logical-erd {
-
   border: 2px solid #333446;
 }
 .code-fragment {
@@ -90,6 +98,9 @@ footer {
   text-decoration: none;
   background-color: #333446;
   color: #eaefef;
+}
+.examine-game > img {
+  width: 2rem;
 }
 .examine-game:hover {
   border: 2px inset #333446;
@@ -148,11 +159,14 @@ footer {
   color: #eaefef;
   box-shadow: -7px 7px 5px #7f8caa;
 }
-.about-contact > h3{
+.about-contact > h3 {
   font-family: Aldrich, Impact;
 }
 .about-content > h3 {
   font-family: Aldrich, Impact;
+}
+.about-content > p {
+  font-size: large;
 }
 .paige-image {
   border: 5px solid #b8cfce;
