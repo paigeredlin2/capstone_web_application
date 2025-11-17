@@ -41,9 +41,12 @@
           </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="custom-nav-link" href="{% url 'home' %}">Home</a>
-            <a class="custom-nav-link" href="{% url 'documentation' %}">Documentation</a>
-            <a class="custom-nav-link" href="{% url 'gallery' %}">Gallery</a>
+            <a class="custom-nav-link {% if request.resolver_match.url_name == 'home' %}custom-active{% endif %}" 
+            href="{% url 'home' %}">Home</a>
+            <a class="custom-nav-link {% if request.resolver_match.url_name == 'documentation' %}custom-active{% endif %}" 
+            href="{% url 'documentation' %}">Documentation</a>
+            <a class="custom-nav-link {% if request.resolver_match.url_name == 'gallery' %}custom-active{% endif %}" 
+            href="{% url 'gallery' %}">Gallery</a>
           </div>
         </div>
       </div>

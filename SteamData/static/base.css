@@ -11,6 +11,13 @@ body {
   color: #eaefef;
   padding: 0 0.5rem;
 }
+.custom-active {
+  background-color: #eaefef;
+  color: #333446;
+}
+.custom-active:hover {
+  text-decoration: none;
+}
 .custom-nav-link:hover {
   text-decoration: underline;
 }
