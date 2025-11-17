@@ -15,9 +15,6 @@ body {
   background-color: #eaefef;
   color: #333446;
 }
-.custom-active:hover {
-  text-decoration: none;
-}
 .custom-nav-link:hover {
   text-decoration: underline;
 }
@@ -41,6 +38,9 @@ footer {
 .home-content {
   background-color: #b8cfce;
   box-shadow: -5px 5px 5px #7f8caa;
+}
+.home-text {
+  font-size: large;
 }
 .green-background {
   background-color: #b8cfce;
@@ -142,4 +142,18 @@ footer {
 }
 .rankings-heading {
   color: #333446;
+}
+.about {
+  background-color: #333446;
+  color: #eaefef;
+  box-shadow: -7px 7px 5px #7f8caa;
+}
+.about-contact > h3{
+  font-family: Aldrich, Impact;
+}
+.about-content > h3 {
+  font-family: Aldrich, Impact;
+}
+.paige-image {
+  border: 5px solid #b8cfce;
 }

@@ -47,6 +47,8 @@
             href="{% url 'documentation' %}">Documentation</a>
             <a class="custom-nav-link {% if request.resolver_match.url_name == 'gallery' %}custom-active{% endif %}" 
             href="{% url 'gallery' %}">Gallery</a>
+            <a class="custom-nav-link {% if request.resolver_match.url_name == 'about' %}custom-active{% endif %}" 
+            href="{% url 'about' %}">About</a>
           </div>
         </div>
       </div>

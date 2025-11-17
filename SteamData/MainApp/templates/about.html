@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container px-3 my-3">
+    <div class="about p-3">
+        <div class="about-contact">
+            <h3>Contact the author:</h3>
+            <ul class="list-group list-group-horizontal-md contact-list">
+                <li class="list-group-item"><a href="mailto:PaigeRedlin@mail.weber.edu">PaigeRedlin@mail.weber.edu</a></li>
+                <li class="list-group-item"><a href="https://www.linkedin.com/in/paige-redlin/">LinkedIn</a></li>
+                <li class="list-group-item"><a href="https://github.com/paigeredlin2">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="about-content mt-3  ">
+            <h3>About the author:</h3>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        Paige Redlin is graduating from Weber State University with her Bachelor's of interdisciplinary Studies and a certificate in the Proficiency of Data Analytics. Her degree consists of three minors in Computer Science, Managemant Information Systems, and Web Development. After graduation, she hopes to find a career in data analytics, database adminsitration, or full-stack development.
+                    </p>
+                    <p>
+                        Born and raised in Ogden, Utah, Paige loves the mountains and cool weather. One day, she hopes to relocate to the Pacific Northwest. When she is not studying, she listens to music, reads, and plays video games. Growing up with two brothers, it was common to spend hours playing Minecraft or Mario Kart together. That interest grew into a hobby that would inspire this project. More than a few of her favorite games are featured in this database.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <img class="img-fluid rounded paige-image d-block mx-auto" src="{% static 'images/PaigeBlue.jpg' %}" alt="A picture of Paige Redlin outside.">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

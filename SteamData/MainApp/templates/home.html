@@ -7,47 +7,59 @@
     <div class="col-lg-6">
       <div class="p-3 home-content">
         <h2>This Project:</h2>
-        <p>
+        <div class="home-text"> 
+          <p>
           This is an interdiscplinary capstone between Computer Science (CS),
           Management Information Systems (MIS), and Web Development (WEB). The
           goal of this project was to create a relational database and web
-          application on the records of video games on the Steam digital
+          application on the records of video games on the
+          <a href="https://store.steampowered.com/">Steam</a> digital
           distribution service. By blending these disciplines, this project
           proves that there is merit in comprehensive and interdisciplinary
           knoweledge.
-        </p>
-        <p>
-          The PC games included in this database, are the 129 most popular games
-          in June and July of 2025. Over the course of six weeks, the app ID,
-          title, rank, and player count of these games were manually collected
-          in order to avoid webscraping the Steam website. The app ID was then
-          used to call an API that would return a JSON object with more data
-          about the game. After the retrieval, all the data was cleaned with the
-          Pandas libarary, coalesced into a single line of a CSV, and normalized
-          into Boyce-Codd normal form and formatted for My SQL Server.
-        </p>
-        <p>
-          This web application was built with the Django framework and deployed
-          with Railway. It aims to present the project and serve as
-          documentation. This website is accessible and responsive. The design
-          of the website was created custom CSS and the Bootstrap library.
-        </p>
+          </p>
+          <p>
+            The games included in this database, are the 129 most popular PC games
+            in June and July of 2025. Over the course of six weeks, the app ID,
+            title, rank, and player count of these games were manually collected
+            in order to avoid webscraping the Steam website. The app ID was then
+            used to call an API that would return a JSON object with more data
+            about the game. This is an example with the most popular game on
+            Steam,
+            <a href="https://store.steampowered.com/api/appdetails?appids=730"
+              >Counter Strike 2</a
+            >. After the retrieval, the data was coalesced into a single line of a
+            CSV, then cleaned with the Python
+            <a href="https://pandas.pydata.org/">Pandas</a> library, and finally
+            normalized into Boyce-Codd normal form and formatted for SQL Server.
+          </p>
+          <p>
+            This web application was built with the
+            <a href="https://www.djangoproject.com/">Django</a> framework and
+            deployed with <a href="https://railway.com/">Railway</a>. It aims to
+            present the project and serve as documentation. By utilizing the database model features of Django, the 129 games in this database can be viewed in the gallery. 
+            The design of the website was created
+            custom CSS and the Bootstrap library. This website is
+            accessible and responsive to all devices. 
+          </p>
+        </div>
       </div>
     </div>
-    
+
     <div class="col-lg-6">
       <div class="p-3 text-center home-content">
         <img
           id="conceptual-erd"
           class="mb-3 img-fluid"
-          src="{% static 'ConceptualERD.png' %}"
+          src="{% static 'images/ConceptualERD.png' %}"
           alt="Conceptual ERD of database design"
         />
-        <img 
+        <img
           id="logical-erd"
           class="img-fluid"
-          src="{% static 'LogicalERD.png' %}" 
-          alt="Logical ERD of database design">
+          src="{% static 'images/LogicalERD.png' %}"
+          alt="Logical ERD of database design"
+        />
       </div>
     </div>
   </div>
