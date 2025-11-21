@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <h6 class="card-title">{{ game.Name }}</h6>
                     <p>Release Date: {{ game.Release_Date }}</p>
-                <a class="examine-game p-1" href="{% url 'detail' game.AppID %}?page={{ page_obj.number }}">Examine<img src="{% static 'icons/search_icon.svg' %}" alt="Search"></a>
+                <a class="examine-game p-1" href="{% url 'detail' game.AppID %}?page={{ page_obj.number }}"><img class="pb-1 px-1" src="{% static 'icons/pixel-label-light.svg' %}" alt="label">Learn More</a>
                 </div>
             </div>
         </div>
@@ -36,10 +36,11 @@
         <ul class="pagination justify-content-center mt-3">
             {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="?page=1">&laquo; 1</a>
+                    <a class="page-link" href="?page=1"><img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous"><img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">1</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">{{ page_obj.previous_page_number }}</a>
                 </li>
             {% endif %}
                 <li class="page-item active">
@@ -49,10 +50,10 @@
                 </li>
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}<img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next"></a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }} &raquo;</a>
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">8<img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next"><img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next"></a>
                 </li>
             {% endif %}
         </ul>

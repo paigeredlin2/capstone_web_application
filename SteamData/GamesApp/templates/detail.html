@@ -5,7 +5,7 @@
 <div class="container p-3">
         <div class="controls mt-3">
             <a class="gallery-return" href="{% url 'gallery' %}?page={{ page }}">
-                <img class="return-icon" src="{% static 'icons/return_icon.svg' %}" alt="Return to gallery">
+                <img class="return-icon pb-1" src="{% static 'icons/pixel-arrow-up-left.svg' %}" alt="Return to gallery">
                 Return to Gallery
             </a>
         </div>
@@ -32,21 +32,21 @@
                     </li>
                     {% if game.Required_Age %}
                         <li class="list-group-item align-middle">
-                            It is recommended that you are at least {{ game.Required_Age }} years old to download this {{ game.Type }}.
+                            Required Age: {{ game.Required_Age }}
                         </li>
                     {% endif %}
                     {% if game.Recommendations %}
                         <li class="list-group-item">
-                            A total of {{ game.Recommendations }} people have recommended this {{ game.Type }}.
+                            Recommendations: {{ game.Recommendations }}
                         </li>
                     {% endif %}
                     {% if not game.Price %}
                         <li class="list-group-item">
-                            This {{ game.Type }} is free.
+                            Price: Free
                         </li>
                     {% else %}
                     <li class="list-group-item">
-                        This game costs ${{ game.Price }}
+                        Price: ${{ game.Price }}
                         {% if game.Discount_Percent %}
                             at {{ game.Discount_Percent }}% off.
                         {% endif %}   
@@ -54,11 +54,11 @@
                     {% endif %}
                     {% if game.Release_Date %}
                     <li class="list-group-item">
-                        This {{ game.Type }} was released on {{ game.Release_Date }}
+                        Release Date: {{ game.Release_Date }}
                     </li>
                     {% else %}
                     <li class="list-group-item">
-                        Keep patient, this game has not been fully release yet!
+                        Unreleased
                     </li>
                     {% endif %}
                 </ul> 

@@ -1,258 +1,299 @@
 {% extends 'base.html' %} {% load static %} {% block title%}Documentation{%endblock %} {% block content %}
 
 <div class="container px-3 my-3">
-  <div class="row mb-3">
+  <div class="row">
     <div class="col">
       <div class="p-3 green-background">
-        <h2>CSV Data Downloads:</h2>
+        <h2>CSV Data Downloads</h2>
         <ul class="list-group list-group-horizontal-md">
           <a
             href="{% static 'entities/App.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="App.csv"
-            >Apps</a
+            >Apps <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Category.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="Category.csv"
-            >Categories</a
+            >Categories <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Genre.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="Genre.csv"
-            >Genres</a
+            >Genres <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
         </ul>
         <ul class="list-group list-group-horizontal-md">
           <a
             href="{% static 'entities/Developer.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="Developer.csv"
-            >Developers</a
+            >Developers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Publisher.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="Publisher.csv"
-            >Publishers</a
+            >Publishers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Language.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="Language.csv"
-            >Languages</a
+            >Languages <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
         </ul>
         <ul class="list-group list-group-horizontal-md">
           <a
             href="{% static 'entities/Ranking.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="Ranking.csv"
-            >Rankings</a
+            >Rankings <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Category.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="App_Category.csv"
-            >Apps and Categories</a
+            >Apps and Categories <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Genre.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="App_Genre.csv"
-            >Apps and Genres</a
+            >Apps and Genres <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
         </ul>
         <ul class="list-group list-group-horizontal-md">
           <a
             href="{% static 'entities/App_Developer.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="App_Developer.csv"
-            >Apps and Developers</a
+            >Apps and Developers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Publisher.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="App_Publisher.csv"
-            >Apps and Publishers</a
+            >Apps and Publishers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Language.csv' %}"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action download-link"
             download="App_Language.csv"
-            >Apps and Languages</a
+            >Apps and Languages <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
         </ul>
       </div>
     </div>
   </div>
+
+  <div class="row documentation-images m-4 p-3">
+    <h2 class="documentation-images-header">Entity Relationship Diagrams</h2>
+    <div class="col-md-6 d-flex">
+          <img 
+          class="img-fluid" 
+          src="{% static 'images/ConceptualERD.png' %}" 
+          alt="Conceptual ERD of database design">
+    </div>
+    <div class="col-md-6 d-flex">
+        <img
+            class="img-fluid"
+            src="{% static 'images/LogicalERD.png' %}"
+            alt="Logical ERD of database design">
+    </div>
+  </div>
+
   <div class="row g-3">
-    <div class="col-lg-6">
-      <div class="p-3 green-background">
+    <div class="col-lg-6 d-flex">
+      <div class="green-background p-3">
         <h2>Database:</h2>
         <p>
           For this project, the data has has been normalized to Boyce-Codd
           normal form for relational database use. The intended database
           management system is SQL Server.
         </p>
-        <div class="code-fragment">
-          <h3 class="code-fragment-heading">Create Database</h3>
-          <code>
-            <pre>
-      CREATE DATABASE SteamGames;
-            </pre>
-          </code>
-        </div>
-        <div class="code-fragment">
-          <h3 class="code-fragment-heading">Create Database Tables</h3>
-          <code>
-            <pre>
-      USE SteamGames;
-
-      CREATE TABLE APPS(
-        AppID int PRIMARY KEY,
-        AppName nvarchar(300) NOT NULL,
-        Description nvarchar(500) NULL,
-        Type nvarchar(20) NOT NULL,
-        RequiredAge int NULL CHECK (RequiredAge > 0 AND RequiredAge < 100),
-        Recommendations int NULL CHECK (Recommendations > 0),
-        IsFree bit NOT NULL,
-        DiscountPercent int NULL CHECK (DiscountPercent > 0 AND DiscountPercent < 100),
-        Price decimal(6,2) NULL,
-        ComingSoon bit NOT NULL,
-        ReleaseDate date NULL CHECK (ReleaseDate > '1958-01-01'),
-        FullAppID int Null,
-        ImageLink nvarchar(200) Null
-      );
-
-      CREATE TABLE CATEGORIES(
-        CategoryID int PRIMARY KEY,
-        Description nvarchar(50) NOT NULL
-      );
-
-      CREATE TABLE GENRES(
-        GenreID int PRIMARY KEY,
-        Description nvarchar(50) NOT NULL
-      );
-
-      CREATE TABLE DEVELOPERS(
-        DeveloperID int PRIMARY KEY,
-        DeveloperName nvarchar(100) NOT NULL
-      );
-
-      CREATE TABLE PUBLISHERS(
-        PublisherID int PRIMARY KEY,
-        PublisherName nvarchar(100) NOT NULL
-      );
-
-      CREATE TABLE LANGUAGES(
-        LanguageID int PRIMARY KEY,
-        LanguageName nvarchar(100) NOT NULL
-      );
-
-      CREATE TABLE RANKINGS(
-        AppID int NOT NULL,
-        Date date NOT NULL,
-        Rank int NOT NULL CHECK (Rank >= 1 AND RANK <= 100),
-        PlayerCount int NOT NULL CHECK (PlayerCount > 0),
-        PRIMARY KEY (AppID, Date),
-        FOREIGN KEY (AppID) REFERENCES Apps(AppID)
-      );
-
-      CREATE TABLE APP_CATEGORIES(
-        AppID int NOT NULL,
-        CategoryID int NOT NULL,
-        PRIMARY KEY (AppID, CategoryID),
-        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
-        FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
-      );
-
-      CREATE TABLE APP_GENRES(
-        AppID int NOT NULL,
-        GenreID int NOT NULL,
-        PRIMARY KEY (AppID, GenreID),
-        FOREIGN KEY (AppID) REFERENCES Apps(AppID), 
-        FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
-      );
-
-      CREATE TABLE APP_DEVELOPERS(
-        AppID int NOT NULL,
-        DeveloperID int NOT NULL,
-        PRIMARY KEY (AppID, DeveloperID),
-        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
-        FOREIGN KEY (DeveloperID) REFERENCES Developers(DeveloperID)
-      );
-
-      CREATE TABLE APP_PUBLISHERS(
-        AppID int NOT NULL,
-        PublisherID int NOT NULL,
-        PRIMARY KEY (AppID, PublisherID),
-        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
-        FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID)
-      );
-
-      CREATE TABLE APP_LANGUAGES(
-        AppID int NOT NULL,
-        LanguageID int NOT NULL,
-        AudioSupport bit NOT NULL,
-        PRIMARY KEY (AppID, LanguageID),
-        FOREIGN KEY (AppID) REFERENCES Apps(AppID),
-        FOREIGN KEY (LanguageID) REFERENCES Languages(LanguageID)
-      );
-          </pre
-            >
-          </code>
-        </div>
-        <div class="code-fragment">
-          <h3 class="code-fragment-heading">Create Stored Procedure</h3>
-          <code>
-            <pre>
-      CREATE PROCEDURE dbo.BulkInsertFromCSV
-      (
-        @TableName nvarchar(128),
-        @FilePath nvarchar(255)
-      )
-      AS
-      BEGIN
-        DECLARE @SQL nvarchar(MAX);
-
-        SET @SQL = '
-        BULK INSERT ' + @TableName + '
-        FROM ''' + @FilePath + '''
-        WITH (
-          FORMAT = ''CSV'',
-          FIELDTERMINATOR = '','',
-              ROWTERMINATOR = ''\n'',
-              FIRSTROW = 2,
-          CODEPAGE = ''65001''	
-        )'
-          EXEC sp_executesql @SQL;
-      END
-      ;
-            </pre>
-          </code>
-        </div>
-        <div class="code-fragment">
-          <h3 class="code-fragment-heading">
-            Insert Data Using Stored Procedure
-          </h3>
-          <code>
-            <pre>
-      USE SteamGames;
-
-      EXEC dbo.BulkInsertFromCSV 
-        @TableName = '',
-        @FilePath = ''
-      ;
-            </pre>
-          </code>
+        <div class="accordion accordion-flush">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Create Database
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <p class="font-monospace">CREATE DATABASE SteamGames;</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                Create Database Tables
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="font-monospace">
+                  <div>USE SteamGames;</div>
+                  <br />
+                  <div>CREATE TABLE APPS(</div>
+                  <div>AppID int PRIMARY KEY,</div>
+                  <div>AppName nvarchar(300) NOT NULL,</div>
+                  <div>Description nvarchar(500) NULL,</div>
+                  <div>Type nvarchar(20) NOT NULL,</div>
+                  <div>RequiredAge int NULL CHECK (RequiredAge &gt; 0 AND RequiredAge &lt; 100),</div>
+                  <div>Recommendations int NULL CHECK (Recommendations &gt; 0),</div>
+                  <div>IsFree bit NOT NULL,</div>
+                  <div>DiscountPercent int NULL CHECK (DiscountPercent &gt; 0 AND DiscountPercent &lt; 100),</div>
+                  <div>Price decimal(6,2) NULL,</div>
+                  <div>ComingSoon bit NOT NULL,</div>
+                  <div>ReleaseDate date NULL CHECK (ReleaseDate &gt; '1958-01-01'),</div>
+                  <div>FullAppID int Null,</div>
+                  <div>ImageLink nvarchar(200) Null</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE CATEGORIES(</div>
+                  <div>CategoryID int PRIMARY KEY,</div>
+                  <div>Description nvarchar(50) NOT NULL</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE GENRES(</div>
+                  <div>GenreID int PRIMARY KEY,</div>
+                  <div>Description nvarchar(50) NOT NULL</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE DEVELOPERS(</div>
+                  <div>DeveloperID int PRIMARY KEY,</div>
+                  <div>DeveloperName nvarchar(100) NOT NULL</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE PUBLISHERS(</div>
+                  <div>PublisherID int PRIMARY KEY,</div>
+                  <div>PublisherName nvarchar(100) NOT NULL</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE LANGUAGES(</div>
+                  <div>LanguageID int PRIMARY KEY,</div>
+                  <div>LanguageName nvarchar(100) NOT NULL</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE RANKINGS(</div>
+                  <div>AppID int NOT NULL,</div>
+                  <div>Date date NOT NULL,</div>
+                  <div>Rank int NOT NULL CHECK (Rank &gt;= 1 AND RANK &lt;= 100),</div>
+                  <div>PlayerCount int NOT NULL CHECK (PlayerCount &gt; 0),</div>
+                  <div>PRIMARY KEY (AppID, Date),</div>
+                  <div>FOREIGN KEY (AppID) REFERENCES Apps(AppID)</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE APP_CATEGORIES(</div>
+                  <div>AppID int NOT NULL,</div>
+                  <div>CategoryID int NOT NULL,</div>
+                  <div>PRIMARY KEY (AppID, CategoryID),</div>
+                  <div>FOREIGN KEY (AppID) REFERENCES Apps(AppID),</div>
+                  <div>FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE APP_GENRES(</div>
+                  <div>AppID int NOT NULL,</div>
+                  <div>GenreID int NOT NULL,</div>
+                  <div>PRIMARY KEY (AppID, GenreID),</div>
+                  <div>FOREIGN KEY (AppID) REFERENCES Apps(AppID),</div>
+                  <div>FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE APP_DEVELOPERS(</div>
+                  <div>AppID int NOT NULL,</div>
+                  <div>DeveloperID int NOT NULL,</div>
+                  <div>PRIMARY KEY (AppID, DeveloperID),</div>
+                  <div>FOREIGN KEY (AppID) REFERENCES Apps(AppID),</div>
+                  <div>FOREIGN KEY (DeveloperID) REFERENCES Developers(DeveloperID)</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE APP_PUBLISHERS(</div>
+                  <div>AppID int NOT NULL,</div>
+                  <div>PublisherID int NOT NULL,</div>
+                  <div>PRIMARY KEY (AppID, PublisherID),</div>
+                  <div>FOREIGN KEY (AppID) REFERENCES Apps(AppID),</div>
+                  <div>FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID)</div>
+                  <div>);</div>
+                  <br />
+                  <div>CREATE TABLE APP_LANGUAGES(</div>
+                  <div>AppID int NOT NULL,</div>
+                  <div>LanguageID int NOT NULL,</div>
+                  <div>AudioSupport bit NOT NULL,</div>
+                  <div>PRIMARY KEY (AppID, LanguageID),</div>
+                  <div>FOREIGN KEY (AppID) REFERENCES Apps(AppID),</div>
+                  <div>FOREIGN KEY (LanguageID) REFERENCES Languages(LanguageID)</div>
+                  <div>);</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                Create Stored Procedure
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="font-monospace">
+                  <div>
+                    <div>CREATE PROCEDURE dbo.BulkInsertFromCSV</div>
+                    <div>(</div>
+                    <div>@TableName nvarchar(128),</div>
+                    <div>@FilePath nvarchar(255)</div>
+                    <div>)</div>
+                    <div>AS</div>
+                    <div>BEGIN</div>
+                    <div>DECLARE @SQL nvarchar(MAX);</div>
+                    <br />
+                    <div>SET @SQL = '</div>
+                    <div>BULK INSERT ' + @TableName + '</div>
+                    <div>FROM ''' + @FilePath + '''</div>
+                    <div>WITH (</div>
+                    <div>FORMAT = ''CSV'',</div>
+                    <div>FIELDTERMINATOR = '','',</div>
+                    <div>ROWTERMINATOR = ''\n'',</div>
+                    <div>FIRSTROW = 2,</div>
+                    <div>CODEPAGE = ''65001''</div>
+                    <div>)'</div>
+                    <div>EXEC sp_executesql @SQL;</div>
+                    <div>END</div>
+                    <div>;</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                Insert Data Using Stored Procedure
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="font-monospace">
+                  <div>USE SteamGames;</div>
+                  <br />
+                  <div>EXEC dbo.BulkInsertFromCSV</div>
+                  <div>@TableName = '',</div>
+                  <div>@FilePath = ''</div>
+                  <div>;</div>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6">
-      <div class="p-3 green-background">
+    </div>
+
+    <div class="col-lg-6 d-flex">
+      <div class="green-background p-3">
         <h2>Website:</h2>
         <p>
           The Django website uses PostgreSQL as its backend database. At this
@@ -262,100 +303,82 @@
         <p>
           To add data to the database, the <a href="https://django-import-export.readthedocs.io/en/latest/">Django import/export</a> application and library was added to the project via <a href="https://pypi.org/project/pip/">pip</a>. This allows the csv files to be imported without any extra coding or formatting. To add this functionality, a resource.py file must be made in the model's application and 'import_export' must be added to the project's settings.py INSTALLED_APPS array.
         </p>
-        <div class="code-fragment">
-          <h3 class="code-fragment-heading">Django Models</h3>
-          <code>
-            <pre>
-    from django.db import models
-
-    # Create models here.
-
-    class App(models.Model):
-      AppID = models.IntegerField(primary_key=True)
-      Name = models.CharField(max_length=300)
-      Description = models.TextField(max_length=500, null=True)
-      Type = models.CharField(max_length=20)
-      Required_Age = models.IntegerField(null=True)
-      Recommendations = models.IntegerField(null=True)
-      Is_Free = models.BooleanField()
-      Discount_Percent = models.IntegerField(null=True)
-      Price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-      Coming_Soon = models.BooleanField()
-      Release_Date = models.DateField(null=True)
-      Full_AppID = models.IntegerField(null=True)
-      Image_Link = models.CharField(max_length=200, null=True)
-
-    class Ranking(models.Model):
-      App = models.ForeignKey(App, on_delete=models.CASCADE)
-      Date = models.DateField()
-      Rank = models.IntegerField()
-      Player_Count = models.IntegerField(null=True)
-            </pre>
-          </code>
-        </div>
-        <div class="code-fragment">
-          <h3 class="code-fragment-heading">Django Import Export Resources.py</h3>
-        <code>
-          <pre>
-    #resources.py added to app
-    from import_export import resources, fields
-    from import_export.widgets import ForeignKeyWidget
-    from .models import App, Ranking
-
-    class AppResource(resources.ModelResource):
-        class Meta:
-            model = App
-            import_id_fields = ['AppID']
-            fields = ('AppID', 'Name', 'Description', 'Type', 'Required_Age', 
-            'Recommendations', 'Is_Free', 'Discount_Percent', 'Price', 'Coming_Soon', 
-            'Release_Date', 'Full_AppID', 'Image_Link')
-
-    class RankingResource(resources.ModelResource):
-        App = fields.Field(
-            column_name='AppID',        
-            attribute='App',             
-            widget=ForeignKeyWidget(App, 'AppID') 
-        )
-
-        class Meta:
-            model = Ranking
-          </pre>
-        </code>
-        </div>
-        <div class="code-fragment">
-          <h3 class="code-fragment-heading">
-            Django Import Export Admin.py
-          </h3>
-          <code>
-            <pre>
-      #admin.py register Import Export models
-      from django.contrib import admin
-      from import_export.admin import ImportExportModelAdmin
-      from .models import App, Ranking
-      from .resources import AppResource, RankingResource
-
-      # Register your models here.
-      @admin.register(App)
-      class AppAdmin(ImportExportModelAdmin):
-          resource_class = AppResource
-          list_display = ('Name', 'Release_Date')
-          search_fields = ('AppID', 'Name')
-
-      @admin.register(Ranking)
-      class RankingAdmin(ImportExportModelAdmin):
-          resource_class = RankingResource
-          list_display = ('App', 'Date', 'Rank', 'Player_Count')
-          search_fields = ('App', 'Date', 'Rank')
-            </pre>
-          </code>
+        <div class="accordion accordion-flush">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
+                Django Models
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="font-monospace">
+                  <div>from django.db import models</div>
+                  <br />
+                  <div># Create models here.</div>
+                  <br />
+                  <div>class App(models.Model):</div>
+                  <div>AppID = models.IntegerField(primary_key=True)</div>
+                  <div>Name = models.CharField(max_length=300)</div>
+                  <div>Description = models.TextField(max_length=500, null=True)</div>
+                  <div>Type = models.CharField(max_length=20)</div>
+                  <div>Required_Age = models.IntegerField(null=True)</div>
+                  <div>Recommendations = models.IntegerField(null=True)</div>
+                  <div>Is_Free = models.BooleanField()</div>
+                  <div>Discount_Percent = models.IntegerField(null=True)</div>
+                  <div>Price = models.DecimalField(max_digits=6, decimal_places=2, null=True)</div>
+                  <div>Coming_Soon = models.BooleanField()</div>
+                  <div>Release_Date = models.DateField(null=True)</div>
+                  <div>Full_AppID = models.IntegerField(null=True)</div>
+                  <div>Image_Link = models.CharField(max_length=200, null=True)</div>
+                  <br />
+                  <div>class Ranking(models.Model):</div>
+                  <div>App = models.ForeignKey(App, on_delete=models.CASCADE)</div>
+                  <div>Date = models.DateField()</div>
+                  <div>Rank = models.IntegerField()</div>
+                  <div>Player_Count = models.IntegerField(null=True)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                Django Import Export Resources.py
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="font-monospace">
+                  <div>#resources.py added to app</div>
+                  <div>from import_export import resources, fields</div>
+                  <div>from import_export.widgets import ForeignKeyWidget</div>
+                  <div>from .models import App, Ranking</div>
+                  <br />
+                  <div>class AppResource(resources.ModelResource):</div>
+                  <div>class Meta:</div>
+                  <div>model = App</div>
+                  <div>import_id_fields = ['AppID']</div>
+                  <div>fields = ('AppID', 'Name', 'Description', 'Type', 'Required_Age',</div>
+                  <div>'Recommendations', 'Is_Free', 'Discount_Percent', 'Price', 'Coming_Soon',</div>
+                  <div>'Release_Date', 'Full_AppID', 'Image_Link')</div>
+                  <br />
+                  <div>class RankingResource(resources.ModelResource):</div>
+                  <div>App = fields.Field(</div>
+                  <div>column_name='AppID',</div>
+                  <div>attribute='App',</div>
+                  <div>widget=ForeignKeyWidget(App, 'AppID')</div>
+                  <div>)</div>
+                  <br />
+                  <div>class Meta:</div>
+                  <div>model = Ranking</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="mt-3 p-3 green-background">
-        <h2>CSV Sample:</h2>
-        <div class="code-fragment">
-          <img class="img-fluid" src="{% static 'images/CSVSample.png' %}" alt="A screen capture of a csv file about the App entitiy">
-        </div>
-      </div>
+
       
     </div>
   </div>

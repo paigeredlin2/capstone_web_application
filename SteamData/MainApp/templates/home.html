@@ -3,8 +3,33 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 <div class="container px-3 my-3">
-  <div class="row g-3">
+  <div class="row g-0 hero mb-5">
     <div class="col-lg-6">
+      <h1 class="hero-header p-2 align-middle">The Data Behind the 129 Most Popular Games on Steam During Summer 2025.</h1>
+    </div>
+    <div class="col-lg-6">
+      <div>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {% for app in featured_apps %}
+            <div class="carousel-item {% if forloop.first %}active {% endif %}" data-bs-interval="5000">
+              <img src="{{ app.Image_Link }}" class="d-block w-100" alt="{{ app.Name }}">
+            </div>
+            {% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    </div>
+    </div>
+  </div>
+  
       <div class="p-3 home-content">
         <h2>This Project:</h2>
         <div class="home-text"> 
@@ -44,24 +69,6 @@
           </p>
         </div>
       </div>
-    </div>
-
-    <div class="col-lg-6">
-      <div class="p-3 text-center home-content">
-        <img
-          id="conceptual-erd"
-          class="mb-3 img-fluid"
-          src="{% static 'images/ConceptualERD.png' %}"
-          alt="Conceptual ERD of database design"
-        />
-        <img
-          id="logical-erd"
-          class="img-fluid"
-          src="{% static 'images/LogicalERD.png' %}"
-          alt="Logical ERD of database design"
-        />
-      </div>
-    </div>
   </div>
 </div>
 {% endblock %}
