@@ -2,10 +2,17 @@
 {% load static %} 
 {% block title %}Home{% endblock %}
 {% block content %}
+
 <div class="container px-3 my-3">
   <div class="row g-0 hero mb-5">
-    <div class="col-lg-6">
-      <h1 class="hero-header p-2 align-middle">The Data Behind the 129 Most Popular Games on Steam During Summer 2025.</h1>
+    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center">
+      <div class="hero-header">
+        <h1 class="navy-text">The Data Behind the 129 Most Popular Games on Steam During Summer 2025.</h1>
+      </div>
+      <div class="hero-buttons py-1">
+        <button class="hero-button p-1 mx-1"><a href="{% url 'gallery' %}">View the Games</a></button>
+        <button class="hero-button p-1 mx-1"><a href="{% url 'documentation' %}">View the Data</a></button>
+      </div>
     </div>
     <div class="col-lg-6">
       <div>
@@ -26,12 +33,12 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-    </div>
+      </div>
     </div>
   </div>
   
-      <div class="p-3 home-content">
-        <h2>This Project:</h2>
+    <div class="p-3 home-content">
+      <h2 class="navy-text">This Project:</h2>
         <div class="home-text"> 
           <p>
           This is an interdiscplinary capstone between Computer Science (CS),
@@ -69,6 +76,7 @@
           </p>
         </div>
       </div>
-  </div>
+    </div>
+
 </div>
 {% endblock %}

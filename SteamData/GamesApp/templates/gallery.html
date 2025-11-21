@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Gallery Page{% endblock %} 
 {% block content %}
+
 <div class="container p-3">
     <div class="search-form my-2 px-3">
         <form class="row" method="get">
@@ -36,11 +37,17 @@
         <ul class="pagination justify-content-center mt-3">
             {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="?page=1"><img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous"><img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">1</a>
+                    <a class="page-link" href="?page=1">
+                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">
+                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">
+                        1
+                    </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
-                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">{{ page_obj.previous_page_number }}</a>
+                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">
+                        {{ page_obj.previous_page_number }}
+                    </a>
                 </li>
             {% endif %}
                 <li class="page-item active">
@@ -50,10 +57,16 @@
                 </li>
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}<img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next"></a>
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}
+                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next">
+                    </a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">8<img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next"><img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next"></a>
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">
+                        8
+                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next">
+                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next">
+                    </a>
                 </li>
             {% endif %}
         </ul>

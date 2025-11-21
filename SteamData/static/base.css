@@ -13,6 +13,7 @@ body {
   text-decoration: none;
   color: #eaefef;
   padding: 0 1rem;
+  border: 2px outset #7f8caa;
 }
 .custom-active {
   background-color: #eaefef;
@@ -30,12 +31,26 @@ body {
 .decorative-border {
   background-color: #7f8caa;
 }
+.navy-text {
+  color: #333446;
+}
 .hero {
   background-image: url("../static/images/hero-background.jpg");
 }
 .hero-header {
   font-family: Aldrich, Impact;
   text-align: center;
+}
+.hero-button {
+  background-color: #333446;
+  border: 3px outset #7f8caa;
+}
+.hero-button:hover {
+  border: 3px inset #7f8caa;
+}
+.hero-button > a {
+  color: #eaefef;
+  text-decoration: none;
 }
 footer {
   background-color: #333446;
@@ -54,7 +69,7 @@ footer > p {
   box-shadow: -5px 5px 5px #7f8caa;
 }
 .home-text {
-  font-size: large;
+  font-size: larger;
 }
 .green-background {
   background-color: #b8cfce;
