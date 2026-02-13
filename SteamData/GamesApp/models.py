@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 
@@ -16,6 +17,12 @@ class App(models.Model):
     Release_Date = models.DateField(null=True)
     Full_AppID = models.IntegerField(null=True)
     Image_Link = models.CharField(max_length=200, null=True)
+    Categories = ArrayField(base_field=models.CharField(max_length=50), null=True)
+    Genres = ArrayField(base_field=models.CharField(max_length=50), null=True)
+    Developers = ArrayField(base_field=models.CharField(max_length=50), null=True)
+    Publishers = ArrayField(base_field=models.CharField(max_length=50), null=True)
+    Languages = ArrayField(base_field=models.CharField(max_length=50), null=True)
+
 
     def __str__(self):
         return self.Name

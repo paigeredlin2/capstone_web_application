@@ -3,7 +3,7 @@ from GamesApp.models import App
 
 # Create your views here.
 def home(request):
-    featured_apps = App.objects.all()[:5]
+    featured_apps = App.objects.order_by('AppID')[:5]
     context = {
         'featured_apps' : featured_apps
     }

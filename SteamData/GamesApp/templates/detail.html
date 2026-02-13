@@ -61,6 +61,18 @@
                         Unreleased
                     </li>
                     {% endif %}
+                    <li class="list-group-item">
+                        Categories: {% for category in game.Categories %}{{ category }}{% endfor %}
+                    </li>
+                    <li class="list-group-item">
+                        Genres: {% for genres in game.Genres %}{{ genres }}{% endfor %}
+                    </li>
+                    <li class="list-group-item">
+                        Developers: {% for developer in game.Developers %}{{ developer }}{% endfor %}
+                    </li>
+                    <li class="list-group-item">
+                        Publishers: {% for publisher in game.Publishers %}{{ publisher }}{% endfor %}
+                    </li>
                 </ul> 
             </div>
         </div>
@@ -86,6 +98,17 @@
                         {% endfor %}
                     </tbody>
                 </table>
+            </div>
+            <div>
+                {% for similar_game in similar_games %}
+                <div>
+                    <div>
+                        <img class="similar-image" src="{{ similar_game.Image_Link }}" alt="{{ similar_game.name }}">
+                    </div>
+                    <h6>{{ similar_game.name }}</h6>
+
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
