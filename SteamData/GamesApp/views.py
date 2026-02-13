@@ -2,11 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.postgres.search import TrigramWordSimilarity
 from .models import App, Ranking
-
+from django.conf import settings
+import os
 
 import pandas as pd
-
-df = pd.read_csv('data/app_all.csv', index_col='AppID', keep_default_na=False) # Null columns do not default to NaN
+file_path = os.path.join(settings.BASE_DIR, 'data', 'app_all.csv')
+df = pd.read_csv(file_path, index_col='AppID', keep_default_na=False) # Null columns do not default to NaN
 
 def jaccard_similarity(base_case, compartor):
 	#convert strings to sets
@@ -22,16 +23,16 @@ def jaccard_similarity(base_case, compartor):
 		return float(intersect) / float(union)
 
 def find_similar(appID, comparing_column):
-	k = 7 # 1 record will be removed by dropping appID record later
+    k = 7 # 1 record will be removed by dropping appID record later
 
-	base_record = df.loc[appID][comparing_column]
+    base_record = df.loc[appID][comparing_column]
 
-	# create a jaccard column that will hold the mapped similarity value of x compared to the base case appID
-	df['Jaccard'] = df[comparing_column].map(lambda x: jaccard_similarity(base_record, x))
+    # create a jaccard column that will hold the mapped similarity value of x compared to the base case appID
+    df['Jaccard'] = df[comparing_column].map(lambda x: jaccard_similarity(base_record, x))
 
-	similar_records = df.sort_values(by=['Jaccard'], ascending=False).head(k)
-
-	return similar_records.drop([appID], axis=0)
+    similar_records = df.sort_values(by=['Jaccard'], ascending=False).head(k)
+    similar_records = similar_records.drop([appID], axis=0)
+    return similar_records.index.to_list()
 
 
 # Create your views here.
@@ -61,17 +62,23 @@ def gallery(request):
     
 
 
-
-def gamedetail(request, AppID, comparing_column='Categories'):
+def gamedetail(request, AppID):
     game = get_object_or_404(App, AppID=AppID)
-    similar_games = find_similar(AppID, comparing_column)
     rankings = Ranking.objects.filter(App=AppID).order_by('-Date')
+    
+    similar_games_categories = find_similar(AppID, 'Categories')
+    similar_games_categories = App.objects.filter(pk__in=similar_games_categories)
+    
+    similar_games_genres = find_similar(AppID, 'Genres')
+    similar_games_genres = App.objects.filter(pk__in=similar_games_genres)
+    
     page = request.GET.get('page', 1)
     
     context = {
         'game': game,
         'rankings': rankings,
-        'similar_games': similar_games,
+        'similar_games_categories': similar_games_categories,
+        'similar_games_genres': similar_games_genres,
         'page': page,
     }
     

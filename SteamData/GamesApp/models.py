@@ -25,7 +25,7 @@ class App(models.Model):
 
 
     def __str__(self):
-        return self.Name
+        return (f'{self.AppID}, {self.Name}, {self.Image_Link}')
 
 class Ranking(models.Model):
     App = models.ForeignKey(App, on_delete=models.CASCADE)
