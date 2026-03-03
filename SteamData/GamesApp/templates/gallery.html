@@ -3,9 +3,10 @@
 {% block title %}Gallery Page{% endblock %} 
 {% block content %}
 
-<div class="container p-3">
-    <div class="search-form my-2 px-3">
-        <form class="row" method="get">
+<div class="container my-3 mx-lg-5">
+    <div class="my-2 p-3 hero">
+        <h2 class="white-text aldrich-text">Looking for a specific game?</h2>
+        <form class="row px-3" method="get">
             <input class="col-md-6" type="text" class="input" placeholder="Search by name" name="q" value="{{ query }}">
             <div class="col-md-6 p-0 d-flex justify-content-start">
                 <button class="search-form-button m-0" type="submit">Search</button>
@@ -16,13 +17,13 @@
 
     <div class="row g-4 mt-3">
         {% if not page_obj %}
-        <h1 class="search-error">Sorry, I don't have any games with that name.</h1>
+        <h2 class="p-2 white-text aldrich-text">Sorry, the data for that game was not collected.</h2>
         {% endif %}
 
         {% for game in page_obj %}
         <div class="col-md-6 col-xl-4">
-            <div class="card mb-2 gallery-game">
-                <img src="{{ game.Image_Link }}" class="card-img-top" alt="{{ game.Name }}">
+            <div class="card rounded-0 mb-2 gallery-game">
+                <img src="{{ game.Image_Link }}" class="card-img-top rounded-0" alt="{{ game.Name }}">
                 <div class="card-body">
                     <h6 class="card-title">{{ game.Name }}</h6>
                     <p>Release Date: {{ game.Release_Date }}</p>
@@ -38,15 +39,12 @@
             {% if page_obj.has_previous %}
                 <li class="page-item">
                     <a class="page-link" href="?page=1">
-                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">
-                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">
-                        1
+                        First
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
-                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-left.svg' %}" alt="Previous">
-                        {{ page_obj.previous_page_number }}
+                        {{ page_obj.previous_page_number }}  
                     </a>
                 </li>
             {% endif %}
@@ -57,15 +55,13 @@
                 </li>
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}
-                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                        {{ page_obj.next_page_number }}    
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">
-                        8
-                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next">
-                        <img class="page-icon px-1 pb-1" src="{% static 'icons/pixel-arrow-right.svg' %}" alt="Next">
+                        Last
                     </a>
                 </li>
             {% endif %}

@@ -1,12 +1,15 @@
 from django.shortcuts import render, HttpResponse
-from GamesApp.models import App
+from django.db.models import Func, F, Count # For counting distinct elements
+from GamesApp.models import App, Ranking
 
 # Create your views here.
 def home(request):
     featured_apps = App.objects.order_by('AppID')[:5]
+    
     context = {
         'featured_apps' : featured_apps
     }
+    
     return render(request, 'home.html', context)
 
 def documentation(request):
