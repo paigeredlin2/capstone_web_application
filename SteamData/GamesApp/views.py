@@ -6,7 +6,7 @@ from django.conf import settings
 import os
 
 import pandas as pd
-file_path = os.path.join(settings.BASE_DIR, 'data', 'app_all.csv')
+file_path = os.path.join(settings.BASE_DIR, 'static', 'entities/app_all.csv')
 df = pd.read_csv(file_path, index_col='AppID', keep_default_na=False) # Null columns do not default to NaN
 
 def jaccard_similarity(base_case, compartor):
