@@ -3,87 +3,87 @@
 {% block title%}Documentation{%endblock %} 
 {% block content %}
 
-<div class="container px-3 my-3">
+<div class="container my-3 mx-lg-5">
   <div class="row">
     <div class="col">
-      <div class="p-3 green-background">
-        <h2>CSV Data Downloads</h2>
-        <ul class="list-group list-group-horizontal-md">
+      <div class="p-3 hero">
+        <h2 class="white-text">CSV Data Downloads</h2>
+        <ul class="list-group list-group-horizontal-md rounded-0">
           <a
             href="{% static 'entities/App.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="App.csv"
             >Apps <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Category.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="Category.csv"
             >Categories <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Genre.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="Genre.csv"
             >Genres <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
         </ul>
-        <ul class="list-group list-group-horizontal-md">
+        <ul class="list-group list-group-horizontal-md rounded-0">
           <a
             href="{% static 'entities/Developer.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="Developer.csv"
             >Developers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Publisher.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="Publisher.csv"
             >Publishers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/Language.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="Language.csv"
             >Languages <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
         </ul>
-        <ul class="list-group list-group-horizontal-md">
+        <ul class="list-group list-group-horizontal-md rounded-0">
           <a
             href="{% static 'entities/Ranking.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="Ranking.csv"
             >Rankings <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Category.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="App_Category.csv"
             >Apps and Categories <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Genre.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="App_Genre.csv"
             >Apps and Genres <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
         </ul>
-        <ul class="list-group list-group-horizontal-md">
+        <ul class="list-group list-group-horizontal-md rounded-0">
           <a
             href="{% static 'entities/App_Developer.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="App_Developer.csv"
             >Apps and Developers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Publisher.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="App_Publisher.csv"
             >Apps and Publishers <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
           <a
             href="{% static 'entities/App_Language.csv' %}"
-            class="list-group-item list-group-item-action download-link"
+            class="list-group-item list-group-item-action download-link rounded-0"
             download="App_Language.csv"
             >Apps and Languages <img class="img-fluid download-icon" src="{% static 'icons/pixel-download.svg' %}" alt="Download"></a
           >
@@ -92,8 +92,8 @@
     </div>
   </div>
 
-  <div class="row documentation-images m-4 p-3">
-    <h2 class="documentation-images-header">Entity Relationship Diagrams</h2>
+  <div class="row m-4 p-3 navy-background">
+    <h2 class="white-text aldrich-text">Entity Relationship Diagrams</h2>
     <div class="col-md-6 d-flex">
           <img 
           class="img-fluid" 
@@ -110,9 +110,9 @@
 
   <div class="row g-3">
     <div class="col-lg-6 d-flex">
-      <div class="green-background p-3">
-        <h2>Database:</h2>
-        <p>
+      <div class="hero p-3">
+        <h2 class="white-text">Database:</h2>
+        <p class="white-text">
           For this project, the data has has been normalized to Boyce-Codd
           normal form for relational database use. The intended database
           management system is SQL Server.
@@ -299,15 +299,15 @@
     </div>
 
     <div class="col-lg-6 d-flex">
-      <div class="green-background p-3">
-        <h2>Website:</h2>
-        <p>
+      <div class="hero p-3">
+        <h2 class="white-text">Website:</h2>
+        <p class="white-text">
           The Django website uses PostgreSQL as its backend database. At this
           time, only the Apps and Ranking entites are available as Django
           models.
         </p>
-        <p>
-          To add data to the database, the <a href="https://django-import-export.readthedocs.io/en/latest/">Django import/export</a> application and library was added to the project via <a href="https://pypi.org/project/pip/">pip</a>. This allows the csv files to be imported without any extra coding or formatting. To add this functionality, a resource.py file must be made in the model's application and 'import_export' must be added to the project's settings.py INSTALLED_APPS array.
+        <p class="white-text">
+          To add data to the database, the <a class="white-text" href="https://django-import-export.readthedocs.io/en/latest/">Django import/export</a> application and library was added to the project via <a class="white-text" href="https://pypi.org/project/pip/">pip</a>. This allows the csv files to be imported without any extra coding or formatting. To add this functionality, a resource.py file must be made in the model's application and 'import_export' must be added to the project's settings.py INSTALLED_APPS array.
         </p>
         <div class="accordion accordion-flush">
           <div class="accordion-item">

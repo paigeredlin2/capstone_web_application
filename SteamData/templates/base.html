@@ -25,7 +25,7 @@
     crossorigin="anonymous"
   ></script>
   <body class="d-flex flex-column">
-    <nav class="navbar navbar-expand-lg main-nav" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg main-nav px-3" data-bs-theme="dark">
       <div class="container-fluid">
         <span id="logo" class="navbar-text">
           <img
@@ -77,13 +77,14 @@
 
     <div class="py-2 decorative-border"></div>
 
-    <div class="flex-grow-1">{% block content %} {% endblock %}</div>
+    <div class="flex-grow-1 px-5">{% block content %} {% endblock %}</div>
 
-    <footer class="py-2">
+    <footer class="py-2 px-5">
       <p class="py-0 my-0">
-        Data belongs to Valve. All trademarks and content are property of their
+        The data in this project belongs to Steam. All trademarks and content are property of their
         respective owners.
       </p>
+      <p class="py-0 my-0 text-center"><a class="white-text" href="{% url 'admin:index' %}">Admin Access</a></p>
       <p class="py-0 my-0">&copy; 2025 Paige Redlin</p>
     </footer>
   </body>
