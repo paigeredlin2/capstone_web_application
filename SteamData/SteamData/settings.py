@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'MainApp',
     'GamesApp',
     'import_export',
-    'django_sass',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
