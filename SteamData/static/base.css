@@ -30,18 +30,17 @@ body {
   color: #eaefef;
   font-size: larger;
 }
-.decorative-border {
-  background-color: #7f8caa;
-}
 .navy-text {
   color: #333446;
 }
-.white-background {
-  background-color: #eaefef;
+.umber-border {
   border: 4px solid #7b3820;
 }
-.hero-heading {
-  color: #eaefef;
+.white-background {
+  background-color: #eaefef;
+}
+.pure-white-background {
+  background-color: #ffffff;
 }
 .hero {
   background-color: #7b3820;
@@ -52,16 +51,13 @@ body {
   text-align: center;
   padding: 1rem;
 }
-.hero-button {
-  background-color: #333446;
+.button {
   border: 3px outset #7f8caa;
 }
-.hero-button:hover {
+.button:hover {
   border: 3px inset #7f8caa;
 }
-.hero-button > a {
-  color: #eaefef;
-  font-size: larger;
+.button > a {
   text-decoration: none;
 }
 footer {
@@ -100,34 +96,7 @@ footer > p {
 }
 .download-link {
   text-decoration: underline;
-  color: #0d6efd;
-}
-.search-form-button {
-  background-color: #333446;
-  color: white;
-  font-family: Aldrich;
-  border: 3px outset #333446;
-}
-.search-form-button:hover {
-  border: 3px inset #333446;
-  text-decoration: underline;
-}
-.clear-search {
-  text-decoration: none;
-  color: white;
-}
-.examine-game {
-  border: 3px outset #333446;
-  text-decoration: none;
-  background-color: #333446;
-  color: #eaefef;
-}
-.examine-game > img {
-  width: 1.5rem;
-}
-.examine-game:hover {
-  border: 4px inset #333446;
-  text-decoration: underline;
+  color: #333446;
 }
 .gallery-game {
   border: 0;
@@ -143,57 +112,6 @@ footer > p {
   color: white;
   border: 2px solid #7f8caa;
 }
-.gallery-return {
-  background-color: #333446;
-  text-decoration: none;
-  color: #eaefef;
-  padding: 6px;
-}
-.gallery-return:hover {
-  text-decoration: underline;
-}
-.return-icon {
-  width: 2rem;
-}
-.game {
-  background-color: white;
-  box-shadow: -7px 7px 5px #7f8caa;
-}
-.game-name {
-  color: #eaefef;
-  background-color: #333446;
-  text-align: center;
-  font-family: Aldrich;
-}
-.game-image {
-  width: 100%;
-  border: 2px solid #333446;
-}
-.game-description {
-  font-size: larger;
-}
-.rankings {
-  background-color: #b8cfce;
-  padding: 0.5rem;
-  box-shadow: -5px 5px 4px #7f8caa;
-}
-.rankings-heading {
-  color: #333446;
-}
-.about {
-  background-color: #333446;
-  color: #eaefef;
-  box-shadow: -7px 7px 5px #7f8caa;
-}
-.about-contact > h3 {
-  font-family: Aldrich, Impact;
-}
-.about-content > h3 {
-  font-family: Aldrich, Impact;
-}
-.about-content > p {
-  font-size: large;
-}
-.umber-border {
-  border: 6px solid #7b3820;
+.blue-bottom-border{
+  border-bottom: 1px solid #7f8caa;
 }

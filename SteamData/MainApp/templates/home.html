@@ -6,24 +6,24 @@
       <div
         class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center"
       >
-        <div class="hero-header">
-          <h1 class="hero-heading">
+        <div class="p-1">
+          <h1 class="text-center white-text aldrich-text ">
             The data behind the most popular Steam games in the summer of 2025
           </h1>
         </div>
-        <div class="hero-buttons py-1">
-          <button class="hero-button p-1 mx-2">
-            <a href="{% url 'gallery' %}">The Games</a>
+        <div class="py-1">
+          <button class="button navy-background aldrich-text">
+            <a class="fs-5 white-text" href="{% url 'gallery' %}">The Games</a>
           </button>
-          <button class="hero-button p-1 mx-2">
-            <a href="{% url 'documentation' %}">The Data</a>
+          <button class="button navy-background aldrich-text">
+            <a class="fs-5 white-text" href="{% url 'documentation' %}">The Data</a>
           </button>
         </div>
       </div>
 
       <div class="col-12 col-lg-6">
         <div
-          id="carouselAutoplaying"
+          id="carouselAutoplayingHome"
           class="carousel slide h-100"
           data-bs-ride="carousel"
         >
@@ -33,18 +33,20 @@
               class="carousel-item {% if forloop.first %}active {% endif %} h-100"
               data-bs-interval="5000"
             >
-              <img
-                src="{{ app.Image_Link }}"
-                class="w-100 h-100"
-                alt="{{ app.Name }}"
-              />
+              <a href="{% url 'detail' app.AppID %}">
+                <img
+                  src="{{ app.Image_Link }}"
+                  class="w-100 h-100"
+                  alt="{{ app.Name }}"
+                />
+              </a>
             </div>
             {% endfor %}
           </div>
           <button
             class="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-target="#carouselAutoplayingHome"
             data-bs-slide="prev"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -53,7 +55,7 @@
           <button
             class="carousel-control-next"
             type="button"
-            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-target="#carouselAutoplayingHome"
             data-bs-slide="next"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -63,44 +65,55 @@
       </div>
     </div>
 
-    <div class="row g-4">
-      <div class="col-xl">
-        <div class="p-3 navy-background white-text">
-          <h3>Underdogs</h3>
-          <p>These games were all rank 100 on the Steam charts during the summer.</p>
-          <ul>
-            <li>Lost Ark: June 15th, 2025</li>
-            <li>Kingdom Come Deliverance: June 22nd, 2025</li>
-            <li>Arma 3: June 29th, 2025</li>
-            <li>Balatro: July 6th and July 13th, 2025</li>
-            <li>The Elder Scrolls Online: July 20th, 2025</li>
-          </ul>
+    <div class="container">
+      <div class="row g-4 p-3 navy-background">
+        <h2 class="text-center aldrich-text white-text">Quick Insights:</h2>
+        <div class="col-xl">
+          <div class="p-3 white-background navy-text umber-border">
+            <h3>Underdogs</h3>
+            <p>
+              These games were all rank 100 on the Steam charts during the
+              summer.
+            </p>
+            <ul>
+              <li>Lost Ark: June 15th, 2025</li>
+              <li>Kingdom Come Deliverance: June 22nd, 2025</li>
+              <li>Arma 3: June 29th, 2025</li>
+              <li>Balatro: July 6th and July 13th, 2025</li>
+              <li>The Elder Scrolls Online: July 20th, 2025</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="col-xl">
-        <div class="p-3 navy-background white-text">
-          <h3>Developers</h3>
-          <p>These developers created some of the most played games on the Steam charts.</p>
-          <ul>
-            <li>Valve: 5</li>
-            <li>Paradox Development Studio: 5</li>
-            <li>Bohemia Interactive: 3</li>
-            <li>Facepunch Studios: 2</li>
-            <li>FromSoftware Inc.: 2</li>
-          </ul>
+        <div class="col-xl">
+          <div class="p-3 white-background navy-text umber-border">
+            <h3>Developers</h3>
+            <p>
+              These developers created multiple games that ranked on the most played Steam charts.
+            </p>
+            <ul>
+              <li>Valve: 5</li>
+              <li>Paradox Development Studio: 5</li>
+              <li>Bohemia Interactive: 3</li>
+              <li>Facepunch Studios: 2</li>
+              <li>FromSoftware Inc.: 2</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="col-xl">
-        <div class="p-3 navy-background white-text">
-          <h3>Genres</h3>
-          <p>These genres are the most commonly-tagged on Steam's most played games.</p>
-          <ul>
-            <li>Action: 81</li>
-            <li>Adventure: 54</li>
-            <li>RPG: 50</li>
-            <li>Indie: 40</li>
-            <li>Simulation: 40</li>
-          </ul>
+        <div class="col-xl">
+          <div class="p-3 white-background navy-text umber-border">
+            <h3>Genres</h3>
+            <p>
+              These are the most commonly-tagged genres on Steam's most played
+              games.
+            </p>
+            <ul>
+              <li>Action: 81</li>
+              <li>Adventure: 54</li>
+              <li>RPG: 50</li>
+              <li>Indie: 40</li>
+              <li>Simulation: 40</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

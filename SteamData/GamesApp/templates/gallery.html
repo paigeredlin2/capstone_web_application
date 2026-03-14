@@ -9,8 +9,8 @@
         <form class="row px-3" method="get">
             <input class="col-md-6" type="text" class="input" placeholder="Search by name" name="q" value="{{ query }}">
             <div class="col-md-6 p-0 d-flex justify-content-start">
-                <button class="search-form-button m-0" type="submit">Search</button>
-                <button class="search-form-button m-0"><a class="clear-search" href="{% url 'gallery' %}">Clear Search</a></button>
+                <button class="m-0 button navy-background white-text aldrich-text" type="submit">Search</button>
+                <button class="m-0 button navy-background aldrich-text"><a class="white-text" href="{% url 'gallery' %}">Clear Search</a></button>
             </div>
         </form>
     </div>
@@ -27,7 +27,9 @@
                 <div class="card-body">
                     <h6 class="card-title">{{ game.Name }}</h6>
                     <p>Release Date: {{ game.Release_Date }}</p>
-                <a class="examine-game p-1" href="{% url 'detail' game.AppID %}?page={{ page_obj.number }}"><img class="pb-1 px-1" src="{% static 'icons/pixel-label-light.svg' %}" alt="label">Learn More</a>
+                    <button class="button navy-background aldrich-text">
+                        <a class="white-text" href="{% url 'detail' game.AppID %}?page={{ page_obj.number }}">Learn More</a>
+                    </button>
                 </div>
             </div>
         </div>

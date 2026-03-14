@@ -1,121 +1,171 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}{{ game.Name }} Details{% endblock %} 
+{% extends 'base.html' %} {% load static %} 
+{% block title %}{{ game.Name}}Details{% endblock %} 
 {% block content %}
-<div class="container p-3">
-        <div class="controls mt-3">
-            <a class="gallery-return" href="{% url 'gallery' %}?page={{ page }}">
-                <img class="return-icon pb-1" src="{% static 'icons/pixel-arrow-up-left.svg' %}" alt="Return to gallery">
-                Return to Gallery
-            </a>
+<div class="container my-3 mx-lg-5">
+
+  <div class="controls mt-3">
+    <button class="p-1 button umber-background aldrich-text">
+      <a class="white-text" href="{% url 'gallery' %}?page={{ page }}">Return to Gallery</a>
+    </button>
+  </div>
+
+  <div class="row">
+
+    <div class="col-xl-8 my-3">
+
+      <div class="game my-3 navy-background">
+        <h2 class="p-1 m-0 text-center white-text aldrich-text">
+          {{ game.Name }}
+        </h2>
+        <div class="row g-0 white-background navy-text blue-bottom-border">
+          <div class="col-md-6 col-lg-8">
+            <img
+              class="w-100 h-100 game-image"
+              src="{{ game.Image_Link }}"
+              alt="{{game.name}}"/>
+          </div>
+          <div class="col-md-6 col-lg-4 p-2">
+            <p>{{ game.Description }}</p>
+          </div>
         </div>
-        
-        <div class="row">
-        <div class="col-xl-8">
-            <div class="game mb-3">
-                <h1 class="game-name mt-3 p-1 mb-0">{{ game.Name }}</h1>
-                <div class="row g-0 m-2">
-                    <div class="col-md-6">
-                        <img class="game-image" src="{{ game.Image_Link }}" alt="{{game.name}}">
-                    </div>
-                    <div class="col-md-6 px-2">
-                        <p class="game-description">{{ game.Description }}</p>
-                    </div>  
-                </div>
-                <div class="decorative-border p-1"></div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        This is a {{ game.Type }}.
-                        {% if game.Full_AppID %}
-                        Full content can be found <a href="{% url 'detail' game.Full_AppID %}"> here. </a>
-                        {% endif %}
-                    </li>
-                    {% if game.Required_Age %}
-                        <li class="list-group-item align-middle">
-                            Required Age: {{ game.Required_Age }}
-                        </li>
-                    {% endif %}
-                    {% if game.Recommendations %}
-                        <li class="list-group-item">
-                            Recommendations: {{ game.Recommendations }}
-                        </li>
-                    {% endif %}
-                    {% if not game.Price %}
-                        <li class="list-group-item">
-                            Price: Free
-                        </li>
-                    {% else %}
-                    <li class="list-group-item">
-                        Price: ${{ game.Price }}
-                        {% if game.Discount_Percent %}
-                            at {{ game.Discount_Percent }}% off.
-                        {% endif %}   
-                    </li>
-                    {% endif %}
-                    {% if game.Release_Date %}
-                    <li class="list-group-item">
-                        Release Date: {{ game.Release_Date }}
-                    </li>
-                    {% else %}
-                    <li class="list-group-item">
-                        Unreleased
-                    </li>
-                    {% endif %}
-                    <li class="list-group-item">
-                        Categories: {% for category in game.Categories %}{{ category }}{% endfor %}
-                    </li>
-                    <li class="list-group-item">
-                        Genres: {% for genres in game.Genres %}{{ genres }}{% endfor %}
-                    </li>
-                    <li class="list-group-item">
-                        Developers: {% for developer in game.Developers %}{{ developer }}{% endfor %}
-                    </li>
-                    <li class="list-group-item">
-                        Publishers: {% for publisher in game.Publishers %}{{ publisher }}{% endfor %}
-                    </li>
-                </ul> 
-            </div>
+        <div class="row g-0 px-2 white-background navy-text blue-bottom-border">
+          <div class="col-6">
+            <h6>
+              {% if game.Recommendations %} Recommeded by {{game.Recommendations}} players {% endif %}
+            </h6>
+          </div>
+          <div class="col-6 text-end">
+            <h6>
+              {% if not game.Price %} Free {% else %} ${{ game.Price }} {%endif%} 
+              {% if game.Discount_Percent %} at {{ game.Discount_Percent}}% off. {% endif %}
+            </h6>
+          </div>
         </div>
-        
-        <div class="col-xl-4">
-            <div class="rankings mt-3">
-                <h2 class="rankings-heading">Steam Chart Rankings:</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Date:</th>
-                            <th scope="col">Rank:</th>
-                            <th scope="col">Player Count:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for rank in rankings %}
-                        <tr>
-                            <td>{{ rank.Date }}</td>
-                            <td>{{ rank.Rank}}</td>
-                            <td>{{ rank.Player_Count}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+        <div class="row g-0 px-2 white-background navy-text blue-bottom-border">
+          <div class="col-12">
+            <h6>
+              Developer(s): {% for developer in game.Developers %}{{developer}}{% endfor %}
+            </h6>
+          </div>
         </div>
-        <div class="row">
-            <div class="similar-categories">
-                <h1>Similar Games Categories:</h1>
-                {% for similar_game in similar_games_categories %}
-                <h3>{{ similar_game.Name }}</h3>
-                <img src="{{ similar_game.Image_Link }}" alt="{{ similar_game.Name }}">
-                {% endfor %}
-            </div>
-            <div class="similar-genres">
-                <h1>Similar Games Genres :</h1>
-                {% for similar_game in similar_games_genres %}
-                <h3>{{ similar_game.Name }}</h3>
-                <img src="{{ similar_game.Image_Link }}" alt="{{ similar_game.Name }}">
-                {% endfor %}
-            </div>
+        <div class="row g-0 px-2 white-background navy-text blue-bottom-border">
+          <div class="col-12">
+            <h6>
+              Publisher(s): {% for publisher in game.Publishers %}{{publisher}}{% endfor %}
+            </h6>
+          </div>
         </div>
+        <div class="row g-0 px-2 white-background navy-text blue-bottom-border">
+          <div class="col-12">
+            <h6>
+              {% if game.Release_Date %} Release Date: {{ game.Release_Date }}{% else %} Unreleased {% endif %}
+            </h6>
+          </div>
+        </div>
+        {% if game.Full_AppID %}
+        <div class="row g-0 px-2 white-background navy-text blue-bottom-border">
+          <h6>
+            This is a {{ game.Type }}. Full content can be found
+            <a class="navy-text" href="{% url 'detail' game.Full_AppID %}">
+              here.</a>
+          </h6>
+        </div>
+        {% endif %} 
+        {% if game.Required_Age %}
+          <div class="row g-0 px-2 white-background navy-text blue-bottom-border">
+            <h6>Required Age: {{ game.Required_Age }}</h6>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="genres-categories p-3 my-3 navy-background">
+        <h3 class="white-text aldrich-text">Genres:</h3>
+        <div>
+          {% for genres in game.Genres %}
+          <span class="d-inline-block mb-2 umber-background white-text aldrich-text">{{ genres }}</span>
+          {% endfor %}
+        </div>
+        <h3 class="mt-2 white-text aldrich-text">Categories:</h3>
+        <div>
+          {% for category in game.Categories %}
+          <span class="d-inline-block mb-2 umber-background white-text aldrich-text">{{ category }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
     </div>
+
+    <div class="col-xl-4 my-3">
+
+      <div class="rankings my-3 umber-background">
+        <h2 class="p-1 m-0 text-center white-text aldrich-text">Steam Chart Rankings:</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Date:</th>
+              <th scope="col">Rank:</th>
+              <th scope="col">Player Count:</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for rank in rankings %}
+            <tr>
+              <td>{{ rank.Date }}</td>
+              <td>{{ rank.Rank}}</td>
+              <td>{{ rank.Player_Count}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="similar p-2 navy-background">
+        <h3 class="text-center white-text aldrich-text">Games with similar tags:</h3>
+      <div
+        id="carouselAutoplayingSimGames"
+        class="carousel slide h-100"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner h-100">
+          {% for similar_game in similar_games_categories %}
+          <div
+            class="carousel-item {% if forloop.first %}active{% endif %} h-100"
+            data-bs-interval="5000"
+          >
+            <a href="{% url 'detail' similar_game.AppID %}">
+              <img
+                src="{{ similar_game.Image_Link }}"
+                class="w-100 h-100 umber-border"
+                alt="{{ similar_game.Name }}"
+              />
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselAutoplayingSimGames"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselAutoplayingSimGames"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 {% endblock %}
